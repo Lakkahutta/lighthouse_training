@@ -40,7 +40,7 @@ node(){
                 RESULTS_DIR="testResults/${SCIPT}/${DATE}"
 
  
-                DOCKER_CMD = "docker run --rm -v $WORKSPACE/testResults:pwd()/reports -w "pwd()" ibombit/lighthouse-puppeteer-chrome:latest node <FileName.js>"
+                DOCKER_CMD = "docker run --rm -v $WORKSPACE/testResults:${pwd()}/reports -w "${pwd()}" ibombit/lighthouse-puppeteer-chrome:latest node <FileName.js>"
 
 
         }
@@ -65,7 +65,7 @@ node(){
 
         stage('copyResults') {
 
-                sh "rsync -r pwd()/testResults/* /opt/lighthouse-result/"
+                sh "rsync -r ${pwd()}/testResults/* /opt/lighthouse-result/"
 
         }
 
