@@ -1,7 +1,7 @@
 String gitCredentials = 'gitId'
 String repoUrl = 'https://github.com/Lakkahutta/lighthouse_training.git'
 
-node('perf-testing-node'){
+node(){
 
         properties(
 
@@ -66,7 +66,7 @@ node('perf-testing-node'){
 
         stage('copyResults') {
 
-                sh "rsync -r ${PWD}/testResults/* /opt/lighthouse-result/"
+                sh "rsync -r testResults/* /opt/lighthouse-result/"
 
         }
 
