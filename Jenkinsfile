@@ -29,7 +29,7 @@ node(){
 
                 PWD=pwd()
 
-                echo ${PWD}
+                echo pwd()
 
                 SCIPT = 'Training app'  
 
