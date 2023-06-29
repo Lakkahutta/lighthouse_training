@@ -50,7 +50,7 @@ node(){
 
         stage('runShell') {
 
-                print "---------- Running tests ----------
+                print "---------- Running tests ----------"
 
                  try {
 
