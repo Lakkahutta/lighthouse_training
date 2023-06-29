@@ -41,7 +41,7 @@ node('perf-testing-node'){
 
  
                 DOCKER_CMD = "docker run --rm -v $WORKSPACE/testResults:/${RESULTS_DIR}\
-                      -w "$WORKSPACE" ibombit/lighthouse-puppeteer-chrome:latest node <training_app_performance.js>"
+                       ibombit/lighthouse-puppeteer-chrome:latest node <training_app_performance.js>"
 
 
         }
