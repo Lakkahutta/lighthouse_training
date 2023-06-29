@@ -27,8 +27,6 @@ node(){
 
                 buildSucceeded = true        
 
-                PWD=pwd()
-
                 SCIPT = 'Training app'  
 
                 script{
