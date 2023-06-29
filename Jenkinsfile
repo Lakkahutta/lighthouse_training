@@ -29,6 +29,8 @@ node(){
 
                 PWD=pwd()
 
+                echo ${PWD}
+
                 SCIPT = 'Training app'  
 
                 script{
