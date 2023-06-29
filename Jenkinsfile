@@ -1,7 +1,7 @@
 String gitCredentials = 'gitId'
 String repoUrl = 'https://github.com/Lakkahutta/lighthouse_training.git'
 
-node(){
+node('perf-testing-node'){
 
         properties(
 
@@ -25,7 +25,9 @@ node(){
 
         stage('preparation') {
 
-                buildSucceeded = true        
+                buildSucceeded = true  
+
+                PWD = pwd()
 
                 SCIPT = 'Training app'  
 
