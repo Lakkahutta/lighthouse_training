@@ -40,7 +40,7 @@ node(){
                 RESULTS_DIR="testResults/${SCIPT}/${DATE}"
 
  
-                DOCKER_CMD = "docker run --rm -v $WORKSPACE/testResults:${pwd()}/reports -w ${pwd()} ibombit/lighthouse-puppeteer-chrome:latest node training_app_perfomance.js"
+                DOCKER_CMD = "docker run --rm -v $WORKSPACE/testResults:${pwd()}/reports -w ${pwd()} ibombit/lighthouse-puppeteer-chrome:latest node training_app_performance.js"
 
 
         }
