@@ -49,13 +49,8 @@ node(){
 
         }
 
-        stage('copyResults') {
-                
-                sh "rsync -r ${pwd()}/* /opt/lighthouse-result/"
 
-        }
-
-        stage('publishReport') {
+        stage('saveArtifacts') {
 
                 archiveArtifacts allowEmptyArchive: true, artifacts: "**/user-flow.report.html", onlyIfSuccessful: false
 
