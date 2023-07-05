@@ -27,21 +27,7 @@ node(){
 
                 buildSucceeded = true  
 
-                SCIPT = 'Training app'  
-
-                script{
-
-                        DATE= String.format('%tF-%<tH-%<tM-%<tS'
-
-                        , java.time.LocalDateTime.now())
-
-                }
-
-                RESULTS_DIR="testResults/${SCIPT}/${DATE}"
-
- 
-                DOCKER_CMD = "docker run --network host --rm -v $WORKSPACE/testResults:${pwd()}/reports -v ${pwd()}:${pwd()} -w ${pwd()} ibombit/lighthouse-puppeteer-chrome:latest node training_app_performance.js"
-
+                DOCKER_CMD = "docker run --network host --rm -v ${pwd()}:${pwd()} -w ${pwd()} ibombit/lighthouse-puppeteer-chrome:latest node training_app_performance.js"
 
         }
 
@@ -64,30 +50,14 @@ node(){
         }
 
         stage('copyResults') {
-
-                sh "rsync -r ${pwd()}/testResults/* /opt/lighthouse-result/"
+                
+                sh "rsync -r ${pwd()}/* /opt/lighthouse-result/"
 
         }
 
         stage('publishReport') {
 
-                archiveArtifacts allowEmptyArchive: true, artifacts: "${RESULTS_DIR}/**/*", onlyIfSuccessful: false
-
-                publishHTML([
-
-                allowMissing: true,
-
-                alwaysLinkToLastBuild: true,
-
-                keepAll: true,
-
-                reportDir: "${RESULTS_DIR}",
-
-                reportFiles: "index.html",
-
-                        reportName: "HTML Report",
-
-                        reportTitles: ""])
+                archiveArtifacts allowEmptyArchive: true, artifacts: "**/user-flow.report.html", onlyIfSuccessful: false
 
         }
 
